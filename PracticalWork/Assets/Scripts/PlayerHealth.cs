@@ -41,6 +41,12 @@ public class PlayerHealth : MonoBehaviour
 
     private void Die()
     {
+        Camera cam = Camera.main;
+        if (cam != null)
+        {
+            cam.transform.position = new Vector3(_startPosition.x, _startPosition.y, cam.transform.position.z);
+        }
+
         _healthView.ShowGameOver();
         
         Time.timeScale = 0f; 
